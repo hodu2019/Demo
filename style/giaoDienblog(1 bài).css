@@ -1,0 +1,27 @@
+/* ---------------------------navigation bar color --------------------------- */
+.bg-dark {
+background-color: rgba(58, 76, 106, 0.46)!important;
+}
+  #content{
+          text-align: center;
+          justify-items:center ;
+          padding: 27%;
+          color: lavender;
+          text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+         
+        }
+.heading{   width: 100%;
+            
+            background-image: url('https://images.unsplash.com/photo-1552863045-991883e6f59b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80')  ;
+            height: auto;
+            background-size: cover;
+            /* background-attachment:cover; */
+            /* background-position-y: 5rem; */
+            font-family: 'Oswald';
+            background-position: top;
+            /* background-position-y: -40px; */
+            /* background-position-y: -10rem;
+            background-position-x: -25em; */
+}

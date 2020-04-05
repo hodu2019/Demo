@@ -1,0 +1,345 @@
+@font-face{
+    font-family: pigment;
+    src: url(font/pigment_demo.otf);
+}
+.bg-btn {
+    background-color: gray;
+}
+
+#welcome-user {
+    display: flex;
+    align-items: center;
+}
+
+.nav-avatar {
+    height: 35px;
+    border-radius: 99px;
+    width: 35px;
+    object-fit: cover;
+    object-position: 50% 25%;
+}
+
+#welcome-user #user {
+    max-width: 70px;
+    overflow: hidden;
+    width: auto;
+    display: inline-block;
+    margin: auto;
+    text-overflow: ellipsis;
+    line-height: inherit;
+    /* float: left; */
+}
+
+.video-fluid {
+    width: 100%;
+}
+
+/* .slide div.carousel-item{
+    line-height: 0;
+} */
+.navbar-form {
+    /* opacity: 0; */
+    /* visibility: hidden; */
+    display: none;
+    position: absolute;
+    /* right: 0; */
+    background: white;
+    padding: 10px;
+    top: 100%;
+    max-width: 320px;
+    width: 100%;
+}
+
+.navbar-form::before {
+    content: '';
+    display: block;
+    height: 30px;
+    bottom: 100%;
+    position: absolute;
+    width: 100%;
+}
+.display12{
+    display: block;
+}
+/* #conca:hover .navbar-form {
+    /* opacity: 1; */
+    /* visibility: visible; */
+    /* display: block; */
+
+ #closeButton:active {
+    filter: invert(0.5);
+}
+
+#joinButton:active .navbar-form{
+display: block;
+}
+
+.row-form {
+    width: 100%;
+}
+
+.col-50 {
+    width: 50%;
+    float: left;
+}
+
+.btn-row {
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid;
+}
+
+.btn-row .col-50 {
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+    cursor: pointer;
+    display: table;
+}
+
+.btn-row .col-50:hover {
+    background: rgb(199, 199, 199);
+}
+
+.section-form {
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    border: 1px solid;
+    transition-duration: 1s;
+}
+
+.section-form .nav-form {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav-form {
+    transition-duration: .5s;
+    width: 100%;
+}
+
+.nav-form>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-form label {
+    margin: 0;
+    width: 30%;
+    font-size: 12px;
+    padding-right: 5px;
+    line-height: 1.2;
+}
+
+.nav-form input {
+    margin: 0;
+    width: 70%;
+    font-size: 12px;
+}
+
+.nav-form button {
+    margin: 20px auto 0 auto;
+    max-width: 150px;
+    width: 100%;
+}
+
+#login-form.hide-form {
+    transform: translateX(-100%);
+}
+
+#pass-warning {
+    position: absolute;
+    bottom: -18px;
+    font-size: 11px;
+    width: 100%;
+    color: red;
+    margin: auto;
+    text-align: center;
+}
+
+#signup-form.hide-form {
+    transform: translateX(100%);
+}
+
+.update-avatar {
+    position: relative;
+    border-radius: 99px;
+    overflow: hidden;
+    max-width: 100px;
+    margin: auto;
+    justify-content: center !important;
+    margin-bottom: 15px;
+}
+
+.update-avatar::after {
+    content: '';
+    padding-bottom: 100%;
+    display: block;
+}
+
+.update-avatar input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.update-avatar .img-avatar {
+    position: absolute;
+    border-radius: 99px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 25%;
+}
+
+#update-user>p {
+    text-align: center;
+}
+
+/* progress {} */
+
+/* masonry css */
+#masonry-section {
+    width: 100%;
+    background: linear-gradient(270deg, #13e4cd, #e49bf3, #bdf39b);
+    background-size: 600% 600%;
+    padding: 10px;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+div#masonry-section:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#masonry-section .text-content{
+    text-align: center;
+    margin: 40px auto 55px;
+    max-width: 1400px;
+}
+#masonry-section {
+    font-family: pigment;
+}
+#masonry-section h3{
+    font-size: 5rem;
+    line-height: 1;
+}
+#masonry-section p{
+    font-size: 1.4rem;
+}
+#masonry-section .masonry-content {
+    margin: auto;
+    max-width: 1200px;
+}
+
+#masonry-section .grid-item {
+    float: left;
+    margin-bottom: 20px;
+}
+
+#masonry-section .grid-sizer,
+#masonry-section .grid-item {
+    width: calc(20% - 10px);
+    /* width: 20%; */
+}
+#masonry-section .grid-item--width2{
+    width: calc(40% - 10px);
+}
+/* #masonry-section .grid-item--width3{
+    width: calc(40% - 10px);
+}
+#masonry-section .grid-item--width4{
+    width: calc(40% - 10px);
+}
+#masonry-section .gutter-sizer {
+    width: 5%;
+} */
+
+@media(max-width: 550px) {
+
+    #masonry-section .grid-sizer,
+    #masonry-section .grid-item {
+        width: 180px;
+    }
+}
+
+#masonry-section .grid {
+    margin: auto;
+    width: 100%;
+}
+
+#masonry-section .grid img {
+    display: block;
+    max-width: 100%;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/* catch class for js */
+.hide {
+    display: none !important;
+}
+.hover:hover{
+    color: rgb(121, 121, 255);
+}
+.hover:active{
+    color: blue;
+}

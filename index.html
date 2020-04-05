@@ -1,0 +1,1422 @@
+<!doctype html>
+<html lang="en" >
+
+<head>
+  <!-- Required meta tags -->
+  <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+  <!-- --------------------Tab's Logo----------------------- -->
+  <link rel="icon" href="Final Project assets\es.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- ============ script to get data in firebase ============ -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+  <!-- ============ end script to get data in firebase ============ -->
+
+  <!-- ============ library ============  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <!-- Font awsome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
+
+  <!-- ============ css============  -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style/main.css">
+  <link href="style/custom-style.css" rel="stylesheet" type="text/css">
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+ 
+  <title>Escape</title>
+</head>
+
+<body >
+  <!-- ============ connect API ============ -->
+  <script src="js/API-connect.js"></script>
+  <!-- ============ end connect API ============ -->
+  
+  
+  <!-- -----------------------------------------NAVIGATION BAR------------------------------------------------------- -->
+  <nav  class="navbar fixed-top navbar-expand-md navbar-dark bg-dark py-0  " style="background-color: rgba(58, 76, 106, 0.46)!important;backdrop-filter: blur(5px);   
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.9);  ">
+    <a class="navbar-brand message mb-1" href="#">
+      <img src="Final Project assets\es.jpg" width="50" height="50" alt=""> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link active " href="#Home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link   " href="#About">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link   " href="#Contact">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ">
+        <li class="nav-item ">
+          <a class="nav-link" href="#Suggestions">Suggestions <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link  " href="#Blogs">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="#Gallery">Gallery</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ml-md-4 ">
+        <li class="nav-item catchJs-forUser" id="concac">
+          <a class="nav-link"  onclick="show()"  href="#">Login <i class="fas fa-user ml-2"></i> &nbsp;  Register <i class="fas fa-user-plus ml-2 "></i></a>
+          <div id="welcome-user" class="hide" onclick="show()">
+            <a class="nav-link" href="#">Welcome! &nbsp;<span id="user" style="display: inline !important;"></span></a>
+            <img class="nav-avatar img-avatar"
+              src="https://firebasestorage.googleapis.com/v0/b/travel-21ee8.appspot.com/o/Media%2FavatarUnknown.png?alt=media&token=76a69096-c38a-487c-a21e-2d5adce9d2db"
+              alt="Your avatar">
+          </div>
+          <div class="login body d-flex   justify-content-center  justify-content-md-end "  >
+              <div class="navbar-form " style="background-color: rgba(58, 76, 106, 0.46)!important;backdrop-filter: blur(40px);   
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.9);  " >
+                <!-- navbar-form -->
+                <div id="user-form">
+                  <!-- <div class="mb-3">
+                      <button  type="button" class="close" aria-label="Close" style="width:30px;height:30px;" onclick="remove()">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>                   -->
+                  <div>
+                    <i id="closeButton" class="fas fa-window-close" style="width:30px;height:30px;" onclick="remove()"></i>
+                  </div>
+                  <div class="row-form flex-grow btn-row">
+                    <p class="col-50 bg-btn" data-trigger="login-form">Login</p>
+                    <p class="col-50" data-trigger="signup-form">Register</p>
+                  </div>
+                  <div class="row-form section-form">
+                    <form id="login-form" class="nav-form ">
+                      <div>
+                        <label for="login-email">Email</label>
+                        <input id="login-email"  type="email">
+                      </div>
+                      <div>
+                        <label for="login-pass">Password</label>
+                        <input id="login-pass" type="password">
+                      </div>
+                      <button class="btn btn-success" id="login-btn">Login</button>
+                    </form>
+              
+                    <form id="signup-form" class="nav-form hide-form">
+                      <div>
+                        <label for="signup-email">Email</label>
+                        <input id="signup-email" type="email">
+                      </div>
+                      <div>
+                        <label for="signup-pass">Password</label>
+                        <input id="signup-pass" type="password">
+                      </div>
+                      <div>
+                        <label for="signup-passcf">Password confirm</label>
+                        <input id="signup-passcf" type="password">
+                        <p class="hide" id="pass-warning">Khong dung pass confirm</p>
+                      </div>
+                      <button class="btn btn-success" id="signup-btn">Sign up</button>
+                    </form>
+                  </div>
+                </div>
+              
+                <div id="user-info" class="hide d-flex flex-column justify-content-center"> 
+                  <div>
+                    <i id="closeButton" class="fas fa-window-close" style="width:30px;height:30px;" onclick="remove()"></i>
+                  </div>
+                  <form id="update-user" class="nav-form d-flex flex-column justify-content-center">
+                    <p>Update your information</p>
+                    <div class="update-avatar  ">
+                      <input class="add-img" type='file' accept="image/x-png,image/gif,image/jpeg" id="avatar-user" />
+                      
+                      <img class="img_plholder img-avatar"
+                        src="https://firebasestorage.googleapis.com/v0/b/travel-21ee8.appspot.com/o/Media%2FavatarUnknown.png?alt=media&token=76a69096-c38a-487c-a21e-2d5adce9d2db"
+                        alt="your avatar" />
+                        <br>                       
+                        <br>
+                        <br>
+                        <progress value="0" max="100" id="uploader">0%</progress>
+                    </div>
+                    <div>
+                      <label  for="name-user">Name</label>
+                      <input id="name-user" type="text">
+                    </div>
+                    <button class="btn  mx-5 border border-warning mt-5" style="margin:unset;max-width: unset; 
+     width: unset;">Update</button>
+                  </form>
+                  
+                  <button class="btn  mx-5 border border-warning mt-1" id="logout">Logout</button>
+                </div>
+                <!-- end navbar-form -->
+              </div>
+              <!-- <h1 style="position: absolute;">địt con mẹ</h1> -->
+              
+          </div>
+        
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+  <!-- -----------------------------------------IMAGE SLIDER------------------------------------------------------ -->
+ <section id="Home">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <video class="video-fluid" autoplay loop audio muted>
+            <source src="https://cdn.videvo.net/videvo_files/videos/180607_A_101.mp4" type="video/mp4" />
+          </video>
+          <div class="carousel-caption d-flex flex-column d-center message videoCaption ">
+            <h1 class="font-weight-light ">Explore <span class="text-success">/ </span><span class="font-weight-bold">The
+                World</span></h1>
+            <p>Enjoy the best destinations with us</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <video class="video-fluid" autoplay loop audio muted>
+            <source src="https://cdn.videvo.net/videvo_files/videos/180301_22_B_Timelapses_11.mp4" type="video/mp4" />
+          </video>
+          <div class="carousel-caption d-flex flex-column d-center message videoCaption">
+            <h1 class="font-weight-light ">Trust <span class="text-success">/ </span><span class="font-weight-bold">Our
+                Experience</span></h1>
+            <p>A team of professional Travel Experts</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <video class="video-fluid" autoplay loop audio muted>
+            <source src="https://cdn.videvo.net/videvo_files/videos/AirplaneFootage.mp4" type="video/mp4" />
+          </video>
+          <div class="carousel-caption d-flex flex-column d-center message videoCaption ">
+            <h1 class="font-weight-light ">Create <span class="text-success">/ </span><span class="font-weight-bold">Your
+                Tour</span></h1>
+            <p>Build your next holiday with us</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+ </section>
+ 
+  <!-- ------------------------------------------END OF 1st Screen update 11/3----------------------------------------------------- -->
+  <div class="jumbotron1 jumbotron jumbotron-fluid mb-0 "  id="Suggestions" >
+    <div class="container" >
+      <h1 id="Recommended" class="display-4 Recommended text-center font-weight-bold " > Top places</h1>
+      <div id="lottie " class="d-none">
+        <lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_RPZ14b.json" background="transparent" speed="1"
+          loop autoplay style="display: flex; justify-content: center;">
+        </lottie-player>
+      </div>
+    </div>
+  </div>
+  <!-- -------------------------------------------------Recommend và  Các bài viết nổi bật (update 21/3/2020 thêm nút chuyển slide)------------------------------------------------------------------------------ -->
+
+  <div  id="carousel-example" class="carousel slide " data-ride="carousel" data-interval="false">
+
+    <div class="container pd-5 mt-5 container1">
+      <div class="carousel-inner" style="overflow: hidden;">
+        <div class="carousel-item active">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image1 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Paris, France</h5>
+                  <p class="card-text ">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longersssssssssssssssssss.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image2 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Guilin, China</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image3 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image4 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image5 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image6 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image7 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image8 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image9 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4 d-block d-lg-none ">
+              <div class="card">
+                <div class="image image10 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image11 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Paris, France</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image12 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Guilin, China</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image13 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image14 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image15 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image16 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image17 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image18 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image19 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4 d-block d-lg-none ">
+              <div class="card">
+                <div class="image image20 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image21 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Paris, France</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image22 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Guilin, China</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image23 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image24 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image25 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image26 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image27 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image28 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="image image29 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4 d-block d-lg-none ">
+              <div class="card">
+                <div class="image image30 ">
+
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                    additional
+                    content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+    </a>
+  <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">next</span>
+  </a> -->
+
+    <!-- <ol class="carousel-indicators badge badge-primary text-wrap " id="olindicator">
+      <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example" data-slide-to="1"></li>
+      <li data-target="#carousel-example" data-slide-to="2"></li>
+    </ol> -->
+   
+    <div aria-label="Page navigation example " class="d-flex justify-content-center my-3">
+      <ul class="pagination  ">
+        <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev" style="position: static; justify-content: flex-end; width: auto ;align-items:unset;opacity: 100%;;">
+          <button class="btn btn-link page-link " style="border-radius:1px; text-decoration: unset;border-color:#dee2e6;">Previous</button>
+          <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+        </a>
+           
+        <!-- <li data-slide="prev" class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+        <li data-target="#carousel-example" data-slide-to="0"    ><a class="active1 page-link1 a1 page-item1 " id="page1" href="#" >1</a></li>
+        <li data-target="#carousel-example" data-slide-to="1"   ><a  class="page-link  page-item1" href="#">2</a></li>
+        <li data-target="#carousel-example" data-slide-to="2"   ><a  class="page-link page-item1" href="#">3</a></li>
+
+        <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next"
+          style="position: static; justify-content: flex-end; width: auto ;align-items:unset;opacity: 100%;;">
+          <button class="btn btn-link page-link "
+            style="border-radius:1px; text-decoration: unset;border-color:#dee2e6;">Next</button>
+          <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+        </a>
+      </ul>
+    </div>
+
+
+  </div>
+ 
+  <!-- ---------------------------------------------------------First Class impression------------------------ -->
+  <div class="jumbotron jumbotron2 jumbotron-fluid" >
+    
+  <div class="container text-center jumbotext message textsize"  >
+    <div class="textsize ">
+      <h1 class="textsize display-4 font-weight-bold  ">First-Class Impressions </h1>
+      <p class="textsize1 lead font-weight-normal " style="filter: contrast(8);">Our agency offers travelers various tours and excursions with destinations all
+        over the world. Browse our website to
+        find your dream tour!
+      </p>
+    </div>  
+  </div>
+    
+    
+  </div>
+
+
+  <!-- --------------------------------- (bài đăng nổi bật)------------------------------------------- -->
+  <div class="mx-5" >
+    <header id="Blogs">
+      <h1  class=" text-center my-5 font-weight-bold PostNoiBat">Our Community</h1>
+    </header>
+    
+    <div style="overflow:auto;">
+      <div class="card-columns "  >
+        <div class="card ">
+          <img
+            src="https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/p960x960/80027116_1733281156808068_7309592974067761152_o.jpg?_nc_cat=106&_nc_sid=730e14&_nc_ohc=E9HSOtoqPQwAX-02QeQ&_nc_ht=scontent-hkt1-1.xx&_nc_tp=6&oh=96385ab8f30089bc57e3c2baf17b5ac1&oe=5E9ADA4E"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title that wraps to a new line</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+              This content is a little bit longer.</p>
+          </div>
+        </div>
+        <!-- ---------------------------Khuôn mẫu một bài đăng ko có ảnh, chỉ QUote------------------------ -->
+        <div class="card p-3 ">
+          <blockquote class="blockquote mb-0 card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">
+              <small class="text-muted">
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+        <!-- ---------------------------Khuôn mẫu một bài đăng ko có ảnh, chỉ QUote------------------------ -->
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is another card with title and supporting text below. This card has some additional
+              content to make it slightly taller overall.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card bg-primary text-white text-center p-3 ">
+          <blockquote class="blockquote mb-0">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+            <footer class="blockquote-footer text-white">
+              <small>
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+        <!-- ---------------------------Khuôn mẫu một bài đăng có ẢNh------------------------ -->
+        <div class="card ">
+          <!-- <div class="image client4 " style="width: 100%;
+            height: 600px;
+            background-size: cover;
+            background-position: center;"></div> -->
+          <img
+            src="https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/89764891_1806627746140075_7898939843734929408_o.jpg?_nc_cat=103&_nc_sid=8bfeb9&_nc_ohc=WNloPam2UHsAX_7QCVy&_nc_ht=scontent-hkt1-1.xx&oh=ef2987c32bd34bf103cf91d45bba32d2&oe=5E9B344A"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <!-- ---------------------------Khuôn mẫu một bài đăng có ẢNh------------------------ -->
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is another card with title and supporting text below. This card has some additional
+              content to make it slightly taller overall.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      
+        <div class="card text-center  ">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card ">
+          <!-- <div class="image client1 "></div> -->
+          <img
+            src="https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/89917228_1815032951966221_6274030398557126656_o.jpg?_nc_cat=101&_nc_sid=09cbfe&_nc_ohc=rHAUvPTTtAEAX-kb2SL&_nc_ht=scontent-hkt1-1.xx&oh=2aaf3130e160431f99543eb260af214b&oe=5E9A2A60"
+            class="card-img-top" alt="...">
+        </div>
+        <div class="card p-3 text-right ">
+          <blockquote class="blockquote mb-0">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere eratss a ante.</p>
+            <footer class="blockquote-footer">
+              <small class="text-muted">
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is another card with title and supporting text below. This card has some additional
+              content to make it slightly taller overall.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      
+      
+      
+      
+      </div>
+    </div>
+   
+    <!-- nút chuyển đến trang chuyên đăng post -->
+    <div class="d-flex justify-content-center my-5">
+      <a class="btn btn-primary " role="button" href="#">Show more</a>
+    </div>
+    <!-- nút chuyển đến trang chuyên đăng post -->
+  </div>
+
+
+  <!-- ---------------------------------(bài đăng nổi bật) ------------------------------------------- -->
+
+
+  <!-- ----------------------------------------------------what people say--------------------------------------------------------- -->
+  <section class="d-none d-md-block" id="scroll-to">
+    <div class="bg-dark  text-center" id="whatpeoplesayBackground">
+      <br>
+      <br>
+      <br>
+      <div class="d-flex justify-content-center align-items-center">
+        <!-- <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_JuQeKn.json" background="transparent"
+          speed="1" style="width: 150px; height: 150px;" loop autoplay>
+        </lottie-player> -->
+
+        <h1 class="mb-0 FakeContent " style="font-family: 'Pacifico', cursive;font-size: 2.5rem;
+  text-shadow: 2px 2px 2px #aaa;color: rgba(255, 0, 0, 0.43);">
+          What people say</h1>
+        <!-- <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_JuQeKn.json" background="transparent"
+          speed="1" style="width: 150px; height: 150px;" loop autoplay>
+        </lottie-player> -->
+
+      </div>
+
+      <br>
+
+
+      <div class=" my-5 mx-5 " id="whatpeoplesayBackground1">
+        <div class="content" id="content">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="container" id="con1">
+                  <div class="row row-cols-1  row-cols-lg-3 ">
+                    <div class="col my-3">
+                      <div class="card" style=" box-shadow: 0 0 32px rgba(0, 0, 0, 0.5); ">
+                        <div class="image client1 ">
+
+                        </div>
+                        <div class="card-body" style="height:12rem;">
+                          <h5 class="card-title">Victor Le</h5>
+                          <p class="card-text"> <span class="text-bold">"</span> Trang web có bố cục rõ ràng, dịch vụ rất tốt, phù hợp với túi tiền của mình. Mình sẽ giới thiệu trang web của bạn đến mọi người .Cảm ơn vì đã mang đến một trang web về du lịch tuyệt vời.  "</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col my-3">
+                      <div class="card" style=" box-shadow: 0 0 32px rgba(0, 0, 0, 0.5); ">
+                        <div class="image client7 ">
+
+                        </div>
+                        <div class="card-body" style="height:12rem;">
+                          <h5 class="card-title">Long xạo lồn</h5>
+                          <p class="card-text d-none">" I wanted to thank you very much for planning the trip to France for my
+                            sister and me. It was amazing and exceeded my
+                            expectations! We had a wonderful time and were very pleased. "</p>
+                            <p class="card-text ">" Mình chỉ muốn nói web bạn làm đỉnh vcl, đm mình chưa bao giờ thấy web nào hoành tráng như thế này, đó cũng là lúc mình nhận ra, web của mình thật là tuổi l**. "</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col my-3">
+                      <div class="card" style=" box-shadow: 0 0 32px rgba(0, 0, 0, 0.5); ">
+                        <div class="image client8 ">
+
+                        </div>
+                        <div class="card-body" style="height:12rem;">
+                          <h5 class="card-title">Mr. Trump</h5>
+                          <p class="card-text">" We had a marvelous time in our travels to Madagascar, Zimbabwe, and
+                            Botswana, we had just wonderful experiences. Your
+                            service was amazing and everyone was very attentive! "</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="container" id="con1">
+                  <div class="row row-cols-1  row-cols-lg-3 ">
+                    <div class="col my-3">
+                      <div class="card" style=" box-shadow: 0 0 32px rgba(0, 0, 0, 0.5); ">
+                        <div class="image client4 ">
+
+                        </div>
+                        <div class="card-body" style="height:12rem;">
+                          <h5 class="card-title">Chris</h5>
+                          <p class="card-text"> <span class="text-bold">"</span> Just wanted to say many, many thanks
+                            for
+                            helping me set
+                            up an amazing Costa Rican adventure! My nephew and I had a great
+                            time! All of the accommodations were perfect, thank you! "</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col my-3">
+                      <div class="card" style=" box-shadow: 0 0 32px rgba(0, 0, 0, 0.5); ">
+                        <div class="image client5 ">
+
+                        </div>
+                        <div class="card-body" style="height:12rem;">
+                          <h5 class="card-title">Taylor</h5>
+                          <p class="card-text">" I really appreciate your team's hardwork ,You guys have created the best of the best. I mean your Website is really great in considering the service,stability and your offers "</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col my-3">
+                      <div class="card" style=" box-shadow: 0 0 32px rgba(0, 0, 0, 0.5); ">
+                        <div class="image client6 ">
+
+                        </div>
+                        <div class="card-body" style="height:12rem;">
+                          <h5 class="card-title">Gabbie</h5>
+                          <p class="card-text">" Thanks for offering us the amazing trip to China. We've had a wonderful time with our friends. Just really impressed by the services you offer. Anyway, Thank you! "</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+              <a class="carousel-control-prev  pr-4" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next  pl-4" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <br>
+      <br>
+      <br>
+    </div>
+  </section>
+  <!-- ----------------------------------------------------what people say --------------------------------------------------------- -->
+
+  <!-- -------------Background ngôi sao--------------------------------------------- -->
+<!-- <div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div> -->
+<!-- -------------Background ngôi sao--------------------------------------------- -->
+ 
+
+<!-- -----------------------------------------------------Số liệu fake để khoe hang  update 12/3 Thắng -------------------------------------------------------------------------- -->
+  <div class="py-3" >
+
+
+    <!--Section: Content-->
+    <section class="container-fluid "
+      style="background-image: url(https://images.unsplash.com/photo-1511576661531-b34d7da5d0bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80); background-position: center; background-attachment: c; background-size: cover">
+      <br>
+      
+      <h3 class="text-center  mb-5  " style="font-family: 'Pacifico', cursive;font-size: 2.5rem;
+  text-shadow: 2px 2px 2px #aaa;color: rgba(255, 0, 0, 0.43);">Interested?</h3>
+      <br>
+      <div class="row d-flex justify-content-center FakeContent " >
+
+        <div class="col-md-6 col-lg-3 mb-4 text-center">
+          <h4 class="h1 font-weight-normal mb-3">
+            <i class="fas fa-file-alt indigo-text"></i>+
+            <span class="d-inline-block count-up" data-from="0" data-to="200" data-time="6000">100</span>
+          </h4>
+          <p class="font-weight-normal ">Travel Blogs a Day</p>
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-4 text-center">
+          <h4 class="h1 font-weight-normal mb-3">
+            <i class="fas fa-user-plus ml-2 9px " ></i>
+            <span class="d-inline-block count1" data-from="0" data-to="1000" data-time="6000">250</span>
+          </h4>
+          <p class="font-weight-normal ">People Joined In</p>
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-4 text-center">
+          <h4 class="h1 font-weight-normal mb-3">
+            <i class="far fa-handshake" ></i>
+            <span class="d-inline-block count2" data-from="0" data-to="330" data-time="6000">330</span>
+          </h4>
+          <p class="font-weight-normal ">Partners</p>
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-4 text-center">
+          <h4 class="h1 font-weight-normal mb-3">
+            <i class="fas fa-trophy"></i>
+            <span class="d-inline-block count3" data-from="0" data-to="20" data-time="6000">430</span>
+          </h4>
+          <p class="font-weight-normal ">International Awards</p>
+        </div>
+
+      </div>
+      <br>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-primary "  onclick="show()">Join Now</button>
+      </div>
+      <br>
+
+    </section>
+    <!--Section: Content-->
+
+
+  </div>
+  <!-- -----------------------------------------------------Số liệu fake để khoe hang  update 12/3 Thắng-------------------------------------------------------------------------- -->
+
+
+  <!-- -------------------------------- Gallery Mansory(A Bách) ----------------------------------- -->
+<!-- <div id="Gallery">
+  <div id="masonry-section">
+    <div class="text-content">
+      <h3>Title</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+        amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a
+        pariatur accusamus veniam.</p>
+    </div>
+    <div class="masonry-content">
+      <div class="grid">
+        <div class="grid-sizer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+   -->
+
+
+  <!-- -----------------------------------About------------------------------------------------------- -->
+ <section id="About" class="about">
+<div class="bg-light">
+  <div class="container py-5">
+    <div class="row h-100 align-items-center py-5">
+      <div class="col-lg-6">
+        <h1 class="display-4">About us</h1>
+        <p class="lead text-muted mb-0">Explore the world and create your moments with Escape</p>
+        <!-- <p class="lead text-muted">Snippet by <a href="https://bootstrapious.com/snippets" class="text-muted">
+            <u>Bootstrapious</u></a> -->
+        </p>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block"><img
+          src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png" alt="" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white py-5">
+  <div class="container py-5">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+        <h2 class="font-weight-light">Our Mission</h2>
+        <p class="font-italic text-muted mb-4">is to provide a wide range of travel needs in one platform, enabling
+          customers to create moments together with their loved
+          ones.</p>
+        <!-- <a href="#"
+          class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a> -->
+      </div>
+      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="Final Project assets\26964.jpg" alt=""
+          class="img-fluid mb-4 mb-lg-0" style="width:100%;height:auto;"></div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-5 px-5 mx-auto"><img src="Final Project assets\5860.jpg" alt="" class="img-fluid mb-4 mb-lg-0"
+          style="width:100%;height:auto;"></div>
+      <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+        <h2 class="font-weight-light">Our Top Priority</h2>
+        <p class="font-italic text-muted mb-4">Is to create the biggest travel community ever to support travelers all
+          over the world making perfect trips</p>
+        <!-- <a href="#"
+          class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-light py-5">
+  <div class="container py-5">
+    <div class="row mb-4">
+      <div class="col-lg-5">
+        <h2 class="display-4 font-weight-light">Our team</h2>
+        <p class="font-italic text-muted">Where the miracle comes from</p>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <!-- Team item-->
+      <div class="col-xl-4 col-sm-6 mb-5">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://image.flaticon.com/icons/svg/146/146031.svg"
+            alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0">Victor Le</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-facebook-square text-primary"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-twitter text-primary"></i></a>
+            </li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-instagram text-danger"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-linkedin-in text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End-->
+
+      <!-- Team item-->
+      <div class="col-xl-4 col-sm-6 mb-5">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img
+            src="https://res.cloudinary.com/mhmd/image/upload/v1556834130/avatar-3_hzlize.png" alt="" width="100"
+            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0">Bách Nguyễn</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-facebook-square text-primary"></i></a>
+            </li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-twitter text-primary"></i></a>
+            </li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-instagram text-danger"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-linkedin-in text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End-->
+
+      <!-- Team item-->
+      <div class="col-xl-4 col-sm-12 mb-5">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img
+            src="https://res.cloudinary.com/mhmd/image/upload/v1556834133/avatar-2_f8dowd.png" alt="" width="100"
+            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0">Long Nguyễn</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-facebook-square text-primary"></i></a>
+            </li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-twitter text-primary"></i></a>
+            </li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-instagram text-danger"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i
+                  class="fab fa-linkedin-in text-primary"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End-->
+
+      <!-- Team item-->
+      <!-- <div class="col-xl-3 col-sm-6 mb-5">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img
+            src="https://res.cloudinary.com/mhmd/image/upload/v1556834133/avatar-1_s02nlg.png" alt="" width="100"
+            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0">John Tarly</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
+      </div> -->
+      <!-- End-->
+
+    </div>
+  </div>
+</div>
+
+ </section>
+  <!-- -----------------------------------About------------------------------------------------------- -->
+ 
+
+
+
+  <!-- -----------------------------------Contact us update 12/3 Thắng------------------------------------------------------- -->
+  <!--Section: Contact v.1-->
+  <section id="Contact">
+   <section class="section mb-5 text-dark bg-white" id="contactBackground">
+
+  <!--Section heading-->
+  <h2 class="section-heading h1 py-5 text-center ">Contact us</h2>
+  <!--Section description-->
+  <br>
+  <!-- <p class="section-description pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+    amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a
+    pariatur accusamus veniam.</p> -->
+
+  <div class="row" style="max-width: 100%;margin: auto;">
+
+    <!--Grid column-->
+    <div class="col-lg-5 mb-4">
+
+      <!--Form with header-->
+      <div class="card">
+
+        <div class="card-body text-dark" style="height: auto !important;">
+          <!--Header-->
+          <div class="form-header blue accent-1">
+            <h3><i class="fas fa-envelope"></i> Write to us:</h3>
+          </div>
+
+          <p>We'll write rarely, but with only the best content.</p>
+          <br>
+
+          <!--Body-->
+          <div class="md-form">
+            <i class="fas fa-user prefix grey-text"></i> <label for="form-name">Your name</label>
+            <input type="text" id="form-name" class="form-control">
+            <br>
+          </div>
+
+          <div class="md-form">
+            <i class="fas fa-envelope prefix grey-text"></i> <label for="form-email">Your email</label>
+            <input type="text" id="form-email" class="form-control">
+            <br>
+          </div>
+
+          <div class="md-form">
+            <i class="fas fa-tag prefix grey-text"></i> <label for="form-Subject">Subject</label>
+            <input type="text" id="form-Subject" class="form-control">
+            <br>
+          </div>
+
+          <div class="md-form">
+            <i class="fas fa-pencil-alt prefix grey-text"></i> <label for="form-text">Icon Prefix</label>
+            <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
+
+          </div>
+
+          <div class="text-center mt-4">
+            <button class="btn btn-success">Submit</button>
+          </div>
+
+        </div>
+
+      </div>
+      <!--Form with header-->
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-7">
+
+      <!--Google map-->
+      <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
+        <iframe src="https://maps.google.com/maps?q=dai%20hoc%20bach%20khoa&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+
+      <br>
+      <!--Buttons-->
+      <div class="row text-center text-dark">
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fas fa-map-marker-alt"></i></a>
+          <p>Dai Hoc Bach Khoa Ha Noi</p>
+          <p>Viet Nam</p>
+        </div>
+
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fas fa-phone"></i></a>
+          <p>+ 01 234 567 89</p>
+          <p>Mon - Fri, 8:00-22:00</p>
+        </div>
+
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fas fa-envelope"></i></a>
+          <p>idontknow@gmail.com</p>
+          <p>ireallydontknowagain@gmail.com</p>
+        </div>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+
+  </section>
+  </section>
+ 
+  <!--Section: Contact v.1-->
+  <!-- -----------------------------------Contact us update 12/3 Thắng------------------------------------------------------- -->
+
+
+
+  <!-- -----------------------------------Footer------------------------------------------------------- -->
+  <footer id="footer" class="footer-1 ">
+    <div class="main-footer widgets-dark typo-light">
+      <div class="container">
+        <div class="row">
+  
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget subscribe no-box">
+              <h5 class="widget-title">Escape <span></span></h5>
+              <p> Where you can find your perfect trip </p>
+            </div>
+          </div>
+  
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget no-box">
+              <h5 class="widget-title">Quick Links<span></span></h5>
+              <ul class="thumbnail-widget">
+                <li>
+                  <div class="thumb-content"><a href="#.">Get Started</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">Suggestions</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">Our Community</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">Gallery</a></div>
+                </li>
+                <li>
+                  <div class="thumb-content"><a href="#.">About</a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+  
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget no-box">
+              <h5 class="widget-title">Get Started<span></span></h5>
+              <p>Get access to your full Training and Marketing Suite.</p>
+              <a class="btn btn-success"  onclick="show()">Register Now</a>
+            </div>
+          </div>
+  
+          <div class="col-xs-12 col-sm-6 col-md-3">
+  
+            <div class="widget no-box">
+              <h5 class="widget-title">Contact Us<span></span></h5>
+  
+              <p><a href="mailto:info@domain.com" title="glorythemes">idontknow@domain.com</a></p>
+              <ul class="social-footer2">
+                <li class=""><a title="youtube" target="_blank" href="https://www.youtube.com/"><img alt="youtube"
+                      width="30" height="30"
+                      src="data:image/png;base64,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"></a>
+                </li>
+                <li class=""><a href="https://www.facebook.com/" target="_blank" title="Facebook"><img alt="Facebook"
+                      width="30" height="30"
+                      src="data:image/png;base64,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"></a>
+                </li>
+                <li class=""><a href="https://twitter.com" target="_blank" title="Twitter"><img alt="Twitter" width="30"
+                      height="30"
+                      src="data:image/png;base64,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"></a>
+                </li>
+                <li class=""><a title="instagram" target="_blank" href="https://www.instagram.com/"><img alt="instagram"
+                      width="30" height="30"
+                      src="data:image/png;base64,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"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>Copyright Escape © 2020. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+
+  <!-- java script -->
+  <script src="js/masonry.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/index.js"></script>
+  
+
+</body>
+
+</html>

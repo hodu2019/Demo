@@ -1,0 +1,22 @@
+12/3
+Thắng : Update 2 trang html(1 bài post, nhiều bài post )
+        File main thêm phần Interested? và contact us
+22/3 
+Thắng : Tinh chỉnh responsive và chức năng 1 số chỗ, sửa lại lỗi hover phần login
+        Thêm phần Post nổi bật
+        Tạo lại file mới (main.SCSS, main.css, main.css.map), để cho gọn từ nay file sẽ không viết css mà viết qua SCSS
+        update background
+        update Footer
+        Do viết CSS bằng SCSS rất tiện nên ae tham khảo cách viết trên mạng luôn nha (SCSS có thể viết function,có biến, có các lệnh logic
+        như trong JS nhưng lại được viết dưới dạng CSS, do đó tiết kiệm rất nhiều tgian)
+
+       *******************
+***Chú ý : Không được sửa bất cứ cái gì trong 2 file main.css và main.css.map . Nếu muốn sửa, sửa vào file **main.SCSS**
+           Để thấy được mình đã sửa gì cài thêm plugin "Live Scss compiler" và xem 10 phút đầu hướng dẫn tại đây
+           https://www.youtube.com/watch?v=roywYSEPSvc&t=364s
+
+           Lựa chọn sửa thứ 2 : Sửa vào File custom-style.css (không khuyến khích)
+
+      *******************    
+1/4 
+Thắng : thêm phần about, chỉnh lại phần login ở 3 file html

@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+    <!-- --------------------Tab's Logo----------------------- -->
+    <link rel="icon" href="Final Project assets\es.jpg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- ============ script to get data in firebase ============ -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+    <!-- ============ end script to get data in firebase ============ -->
+    
+    <!-- ============ library ============  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Font awsome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
+    <style>body {
+    
+    font-family: "Nunito", sans-serif !important;
+     }
+     </style>
+    
+    <!-- ============ css============  -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style\giaodienblog(1 bài).css">
+    <link href="style/custom-style.css" rel="stylesheet" type="text/css">
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <title>Blog</title>
+</head>
+
+<body>
+    <!-- ============ connect API ============ -->
+    <script src="js/API-connect.js"></script>
+    <!-- ============ end connect API ============ -->
+    <!-- -----------------------------------------NAVIGATION BAR------------------------------------------------------- -->
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark py-0  " style="background-color: rgba(58, 76, 106, 0.46)!important;backdrop-filter: blur(5px);   
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.9);  ">
+    <a class="navbar-brand message mb-1" href="#">
+        <img src="Final Project assets\es.jpg" width="50" height="50" alt=""> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link   " href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link   " href="#">Contact</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ">
+            <li class="nav-item ">
+                <a class="nav-link " href="#">Suggestions <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  active" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  " href="#">Gallery</a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-md-4 ">
+            <li class="nav-item catchJs-forUser" id="concac">
+                <a class="nav-link" onclick="show()" href="#">Login <i class="fas fa-user ml-2"></i> &nbsp; Register <i
+                        class="fas fa-user-plus ml-2 "></i></a>
+                <div id="welcome-user" class="hide" onclick="show()">
+                    <a class="nav-link" href="#">Welcome! &nbsp;<span id="user"
+                            style="display: inline !important;"></span></a>
+                    <img class="nav-avatar img-avatar"
+                        src="https://firebasestorage.googleapis.com/v0/b/travel-21ee8.appspot.com/o/Media%2FavatarUnknown.png?alt=media&token=76a69096-c38a-487c-a21e-2d5adce9d2db"
+                        alt="Your avatar">
+                </div>
+                <div class="login body d-flex   justify-content-center  justify-content-md-end ">
+                    <div class="navbar-form  ">
+                        <!-- navbar-form -->
+                        <div id="user-form">
+                            <!-- <div class="mb-3">
+                      <button  type="button" class="close" aria-label="Close" style="width:30px;height:30px;" onclick="remove()">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>                   -->
+                            <div>
+                                <i id="closeButton" class="fas fa-window-close" style="width:30px;height:30px;"
+                                    onclick="remove()"></i>
+                            </div>
+                            <div class="row-form flex-grow btn-row">
+                                <p class="col-50 bg-btn" data-trigger="login-form">Login</p>
+                                <p class="col-50" data-trigger="signup-form">Register</p>
+                            </div>
+                            <div class="row-form section-form">
+                                <form id="login-form" class="nav-form ">
+                                    <div>
+                                        <label for="login-email">Email</label>
+                                        <input id="login-email" type="email">
+                                    </div>
+                                    <div>
+                                        <label for="login-pass">Password</label>
+                                        <input id="login-pass" type="password">
+                                    </div>
+                                    <button id="login-btn">Login</button>
+                                </form>
+
+                                <form id="signup-form" class="nav-form hide-form">
+                                    <div>
+                                        <label for="signup-email">Email</label>
+                                        <input id="signup-email" type="email">
+                                    </div>
+                                    <div>
+                                        <label for="signup-pass">Password</label>
+                                        <input id="signup-pass" type="password">
+                                    </div>
+                                    <div>
+                                        <label for="signup-passcf">Password confirm</label>
+                                        <input id="signup-passcf" type="password">
+                                        <p class="hide" id="pass-warning">Khong dung pass confirm</p>
+                                    </div>
+                                    <button id="signup-btn">Sign up</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="user-info" class="hide">
+                            <div>
+                                <i id="closeButton" class="fas fa-window-close" style="width:30px;height:30px;"
+                                    onclick="remove()"></i>
+                            </div>
+                            <form id="update-user" class="nav-form ">
+                                <p>Update your information</p>
+                                <div class="update-avatar">
+                                    <input class="add-img" type='file' accept="image/x-png,image/gif,image/jpeg"
+                                        id="avatar-user" />
+                                    <progress value="0" max="100" id="uploader">0%</progress>
+                                    <img class="img_plholder img-avatar"
+                                        src="https://firebasestorage.googleapis.com/v0/b/travel-21ee8.appspot.com/o/Media%2FavatarUnknown.png?alt=media&token=76a69096-c38a-487c-a21e-2d5adce9d2db"
+                                        alt="your avatar" />
+                                </div>
+                                <div>
+                                    <label for="name-user">Name</label>
+                                    <input id="name-user" type="text">
+                                </div>
+                                <button>Update</button>
+                            </form>
+                            <button id="logout">Logout</button>
+                        </div>
+                        <!-- end navbar-form -->
+                    </div>
+                    <!-- <h1 style="position: absolute;">địt con mẹ</h1> -->
+
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+</nav>
+   <!-- -----------------------------------------Heading------------------------------------------------------- -->
+    <div class="heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="d-flex flex-column justify-content-center align-items-center " id="content">
+                        <h1 style="font-weight: bold;font-size: 3em;">Blogs</h1>
+                        <br>
+                        <h3> Welcome to the world's biggest travel community </h3>
+                        <hr>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!--------------------------------------------bài blog------------------------------------------------------------- -->
+   <section>
+<div class="container">
+
+    <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10">
+
+            <!-- Title -->
+            <h1 class="mt-4">Post Title</h1>
+
+            <!-- Author -->
+            <p class="lead">
+                by
+                <a href="#">Start Bootstrap</a>
+            </p>
+
+            <hr>
+
+            <!-- Date/Time -->
+            <p>Posted on January 1, 2019 at 12:00 PM</p>
+
+            <hr>
+
+            <!-- Preview Image -->
+            <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+
+            <hr>
+
+            <!-- Post Content -->
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut,
+                error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni
+                recusandae
+                laborum minus inventore?</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos
+                iste
+                ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus,
+                voluptatibus.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis
+                unde
+                eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis.
+                Enim, iure!</p>
+
+            <blockquote class="blockquote">
+                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
+                    ante.
+                </p>
+                <footer class="blockquote-footer">Someone famous in
+                    <cite title="Source Title">Source Title</cite>
+                </footer>
+            </blockquote>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas
+                placeat
+                totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?
+            </p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo,
+                aliquam
+                tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae?
+                Qui, necessitatibus, est!</p>
+
+            <hr>
+
+            <!-- Comments Form -->
+            <div class="card my-4">
+                <h5 class="card-header">Leave a Comment:</h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Single Comment -->
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0">Commenter Name</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    
+                    <section class="like mt-3">
+                    <div> <i class="fas fa-thumbs-up hover"></i> <span>0</span></div>                      
+                    </section>
+                </div>
+            </div>
+            <hr>
+            <!-- Comment with nested comments -->
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0">Commenter Namess</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    <section class="like mt-3">
+                        <div> <i class="fas fa-thumbs-up hover"></i> <span>0</span></div>
+                    </section>
+                    <hr>
+                    <div class="media mt-4">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <h5 class="mt-0">Commenter Name</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                            sollicitudin.
+                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum
+                            nunc
+                            ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            <section class="like mt-3">
+                                <div> <i class="fas fa-thumbs-up hover"></i> <span>0</span></div>
+                            </section>
+                        </div>
+                        <hr>
+                    </div>
+                    <hr>
+                    <div class="media mt-4">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <h5 class="mt-0">Commenter Name</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                            sollicitudin.
+                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum
+                            nunc
+                            ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            <section class="like mt-3">
+                                <div> <i class="fas fa-thumbs-up hover"></i> <span>0</span></div>
+                            </section>
+                        </div>
+                        <hr>
+                    </div>
+                     <hr>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+
+        <div class="col-md-4 d-none">
+
+            <!-- Search Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Search</h5>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button">Go!</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Categories</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#">Web Design</a>
+                                </li>
+                                <li>
+                                    <a href="#">HTML</a>
+                                </li>
+                                <li>
+                                    <a href="#">Freebies</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#">JavaScript</a>
+                                </li>
+                                <li>
+                                    <a href="#">CSS</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tutorials</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Side Widget</h5>
+                <div class="card-body">
+                    You can put anything you want inside of these side widgets. They are easy to use, and feature
+                    the
+                    new Bootstrap 4 card containers!
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+   </section>
+<script src="js/masonry.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/database.js"></script>
+<script src="js/index.js"></script>
+<script src="js\giaodienblog(nhiều bài).js"></script>
+
+</body>
+
+</html>
